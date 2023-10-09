@@ -1,0 +1,221 @@
+/* css for screens > than 450 pixels */
+body{
+    background-color: black;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* black rect which contains the two green rects as well as the yellow and blue rects */
+.main_content{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    width:100%;
+}
+
+/* navigation bar 1 - orange rect or the banner at the top of the screen */
+.navigation_bar_1{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+}
+
+.navigation_bar_1 h2{
+    margin: 0;
+    text-align: left;
+}
+
+/* make sure all icons are the same size and equally spaces apart */
+.navigation_bar_1 img{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: white;
+}
+
+/* youtube logo image */
+.navigation_bar_1 .left_images{
+    display:flex;
+    align-items: center;  
+}
+
+/* search bar is in the center of the screen */
+.search_bar{
+    display: flex;
+}
+
+/* three icon images on the upper right of the screen */
+.navigation_bar_1 .right_images{
+    display:flex;
+    align-items: center;
+    background-color: white;
+}
+
+/* navigation bar 2 - green rect on the left of the screen w the links to other pages */
+.navigation_bar_2{
+    width:15%;
+}
+
+/* buttons on the left side of the screen for navigating */
+.navigation_bar_2_buttons{
+    margin: 15px;
+    overflow:hidden; /* if user resizes page the text for the buttons will disappear and be replaced with ellipsis rather than wrapping over to the next line */
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+/* make sure button icon images are equally sized and the link text next to them is aligned */
+.navigation_bar_2 img{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    vertical-align:middle; /* makes images line up in the center w the text */
+    background-color: white;
+}
+
+/* get rid of default link texts */
+.navigation_bar_2_buttons a{
+    text-decoration: none; /* gets rid of underlines as these are links */
+    color:white; /* default link color is blue */
+}
+
+/* green rect that contains the yellow and blue rects (being the horz nav bar and movie posters) */
+.horz_navigation_and_posters{
+    width:85%;
+    display: flex;
+    flex-direction: column; /* stacks the yellow rect on top of the blue */
+}
+
+/* (horz) navigation bar 3 (yellow rect) */
+.navigation_bar_3{
+    align-items:center;
+    display: flex; /* all buttons will be in a row */
+    border-radius:10px;
+    overflow-x: auto; /* you can scroll through buttons w this navigation bar */
+    white-space:nowrap; /* stop button text from wrapping */
+    margin:10px;
+    margin-bottom: 0px;
+}
+
+/* make buttons for horz navigation bar */
+.navigation_bar_3 p{
+    margin:0px;
+    color: white;
+    background-color: grey;
+    border-radius:8px;
+    padding:5px 10px; /* makes button size */
+    margin-right:8px; /* space between buttons */
+}
+
+/* make button colors change when use hovers their cursor over one to click */
+.navigation_bar_3 p:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+/* movie posters that make up the blue rect */
+.movie_posters ul{
+    list-style-type:none; /* gets rid of bullets*/
+    display:flex;
+    flex-wrap:wrap; /* allow movies to wrap to the next row if they don't fit */
+    justify-content:flex-start; /* movies start from left and extend to the right */
+    margin-top: 10px;
+    padding:0px;
+}
+
+/* make sure all movie poster images are the same size */
+.movie_posters img{
+    width:350px;
+}
+
+/* make sure there is space between each row of movie posters */
+.movie_posters li{
+    margin:10px;
+    margin-bottom:40px;
+}
+
+/* make sure movie title is the same length as the width of the movie image  */
+.movie_posters h3{
+    max-width:350px;
+    margin:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+/* text for movie author, view count, and date posted */
+.movie_posters p{
+    margin:0px;
+    margin-bottom:1px;
+}
+
+/* css for screens < 450 pixels (smartphones) */
+@media screen and (max-width: 450px)
+{
+    /* hide last 3 icons in the top horz nav bar */
+    .navigation_bar_1 .right_images{
+        display: none;
+    }
+
+    /* hide nav bar 3 (horz) */
+    .navigation_bar_3 {
+        display: none;
+    }
+
+    /* black rect which contains the two green rects as well as the yellow and blue rects */
+    .main_content{
+        flex-direction: column;
+    }
+
+    /* make sure the all the text for the links to other pages shows up on the screen rather than being replaced with ellipsis like on the computer */
+    .navigation_bar_2_buttons{
+        margin: 15px;
+        overflow:visible;
+        text-overflow: initial;
+        white-space: initial;
+    }
+
+    /* make link buttons take up full screen width */
+    .navigation_bar_2{
+        width:100%;
+    }
+
+    /* make movie images div take up full screen width too*/
+    .horz_navigation_and_posters{
+        width:100%;
+    }
+
+    /* add space around movie images and in between them */
+    .movie_posters li{
+        margin:20px;
+        margin-bottom:60px;
+        flex-basis:100%;
+    }
+
+    /* get rid of the default movie img width used for computer screens */
+    .movie_posters img {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* also get rid of the width assigned to the movie titles on computer screens */
+    .movie_posters h3{
+        max-width:none;
+    }
+
+    /* add space between youtube logo/title and search bar*/
+    .search_bar{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* add search bar to the next line underneath the youtube logo/title rather than being on the same line as on the computer screen */
+    .navigation_bar_1{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding:10px;
+    }
+
+}
